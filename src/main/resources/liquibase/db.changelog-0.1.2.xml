@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet id="2" author="alex.anakin"  runOnChange="true">
+        <sql>
+            ALTER TABLE Person ADD COLUMN first_name VARCHAR(30);
+            ALTER TABLE Person ADD COLUMN last_name VARCHAR(30);
+        </sql>
+        <rollback>
+            ALTER TABLE Person DROP COLUMN first_name;
+            ALTER TABLE Person DROP COLUMN last_name;
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
